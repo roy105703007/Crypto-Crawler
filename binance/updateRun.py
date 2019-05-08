@@ -1,8 +1,8 @@
 import os
-import update as b
-import fix as f
+import update 
+import check 
 l = []
-cwd = '/Users/roy/workspace/trading-data/TradingData/Binance'
+cwd = os.getcwd()
 for i in os.walk(cwd):
     for j in i:
         for k in j:
@@ -23,7 +23,7 @@ def changeTF(tf):
         return 24*60*60
 
 for i in l:
-    filename ='/Users/roy/workspace/trading-data/TradingData/Binance/'+ i
+    filename = i
     sss = i.split("-")
     symbol = sss[1]+'/'+sss[2]
     ccc = sss[3].split(".")
@@ -36,9 +36,9 @@ for i in l:
     print(timeframe)
     print(sec)
     print('--------')
-    b.update(filename,symbol,timeframe,sec)
+    update.update(filename,symbol,timeframe,sec)
     print('done')
     print('--------')
-    f.check(filename)
+    check.check(filename)
     print('check ok')
     print('--------')

@@ -1,8 +1,8 @@
 import os
-import updateall as b
-import fix as f
+import update 
+import check 
 l = []
-cwd = '/Users/roy/workspace/trading-data/TradingData/BitMEX'
+cwd = os.getcwd()
 for i in os.walk(cwd):
     for j in i:
         for k in j:
@@ -23,7 +23,7 @@ def changeTF(tf):
         return 24*60*60
 
 for i in l:
-    filename = '/Users/roy/workspace/trading-data/TradingData/BitMEX/' + i
+    filename = i
     sss = i.split("-")
     if 'ETH' == sss[1] or 'BTC' == sss[1]:
         symbol = sss[1]+'/'+sss[2]
@@ -34,10 +34,10 @@ for i in l:
         print(symbol)
         print(timeframe)
         print(sec)
-        b.update(filename,symbol,timeframe,sec)
+        update.update(filename,symbol,timeframe,sec)
         print('done')
         print('--------')
-        f.check(filename)
+        check.check(filename)
         print('check ok')
         print('--------')
 '''    else :
